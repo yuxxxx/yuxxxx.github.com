@@ -18,7 +18,11 @@
 	
 	.fb-wall.loading{
 		height:300px;
+<<<<<<< HEAD
 		background:url(../img/loader-small.gif) no-repeat center center;}
+=======
+		background:url(loader-small.gif) no-repeat center center;}
+>>>>>>> mock
 	
 	.fb-wall-box{
 		margin-bottom:10px;
@@ -110,12 +114,20 @@
 		margin-bottom:2px;
 		display:block;
 		font-size:11px;
+<<<<<<< HEAD
 		background:url(../img/like.gif) no-repeat 0 0 #FFF;
+=======
+		background:url(like.gif) no-repeat 0 0 #FFF;
+>>>>>>> mock
 		padding-top:5px;}
 		
 	.fb-wall-likes div{
 		margin:0;
+<<<<<<< HEAD
 		background:url(../img/like.gif) no-repeat 0 -5px #EDEFF4;
+=======
+		background:url(like.gif) no-repeat 0 -5px #EDEFF4;
+>>>>>>> mock
 		padding:5px 5px 4px 24px;}
 		
 	.fb-wall-likes div span{
