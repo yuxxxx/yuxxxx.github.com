@@ -1,0 +1,110 @@
+/*背景*/
+body {
+    padding:0;
+    margin:0;
+    width:256px;
+    height:256px;
+    background-repeat:no-repeat;
+    background-image:url('/image/metro-background.png');
+}
+/*パーツ*/
+div {
+    background-color:ivory;
+    position:absolute;
+}
+#head {
+    width:100px;
+    height:100px;
+    transform-origin:center bottom;
+    -moz-transform-origin:center bottom;
+    -webkit-transform-origin:center bottom;
+    margin-left:-55px;
+    margin-bottom:-10px;
+    border-radius:150px;
+    background-color:transparent;
+    border:5px transparent solid;    
+}
+.bone {
+    width:15px;
+    height:20px;
+    margin:1px 0 0 -15.5px;
+    left:100px;
+    bottom:-25px;
+    transform-origin:center 15px;
+    -moz-transform-origin:center 15px;
+    -webkit-transform-origin:center 15px;
+    background-color:#e9d4c2;
+    border-left:10px black solid;
+    border-right:10px black solid;
+}
+.fixed {
+    height:40px;
+    animation:none!important;
+    -moz-animation:none!important;
+    -webkit-animation:none!important;
+    bottom:0;
+    margin-bottom:-100px;
+}
+.base {
+    left:10px;
+    top:251px;
+    width:225px;
+    height:0px;
+    margin:0;
+    border: 5px black solid;
+    border-bottom:none;
+    border-radius:5px 5px 0 0;
+}
+/*親子関係*/
+.bone > .fixed {
+    margin:0 -10px;
+}
+.bone > .bone {
+  left:5.6px;
+  bottom:100%;
+  margin-bottom:-10px;
+}
+.base > .bone {
+    bottom:100px;
+}
+
+/*BPM*/
+#bpm {
+    background-color:transparent;
+    color:black;
+}
+input:after {
+    width:5em;
+    position:absolute;
+    left:1.5em;
+    content:"止める";
+}
+input:checked:after {
+    content:"動かす";
+}
+/*キーフレーム*/
+@keyframes swing {
+  0% { transform:rotate(-10deg);}
+  50% { transform:rotate(10.3deg); }
+  100% { transform:rotate(-10deg); }
+}
+@-moz-keyframes swing {
+  0% { -moz-transform:rotate(-10deg);}
+  50% { -moz-transform:rotate(10.3deg); }
+  100% { -moz-transform:rotate(-10deg); }
+}
+@-webkit-keyframes swing {
+  0% { -webkit-transform:rotate(-10deg); }
+  50% { -webkit-transform:rotate(10.3deg); }
+  100% { -webkit-transform:rotate(-10deg); }
+}
+ .bone {
+	animation: swing 1s ease-in-out 0s infinite normal;
+    -moz-animation: swing 1s ease-in-out 0s infinite normal;
+    -webkit-animation: swing 1s ease-in-out 0s infinite normal;
+}
+input:checked ~ div div.bone:not(.fixed) {
+	animation:none;
+    -moz-animation:none;
+	-webkit-animation:none;
+}

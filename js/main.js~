@@ -1,0 +1,33 @@
+var isauto = [false, false, true, true, false, false,
+              false, false, true, false, false, false,
+              false, false, false, false, false, false];
+var regdate =
+    ["2012/xx/yy","2012/xx/yy","2012/xx/yy","2012/xx/yy","2012/xx/yy",null,
+     "2012/xx/yy","2012/xx/yy","2012/xx/yy",null,null,null,
+     null,null,null,null,null,null];
+var difficulty = [{level:3,rating:"S",score:943333},
+                  {level:6,rating:"B",score:843132},
+                  {level:10,rating:"なし",score:"未プレー"}];
+var news = [{month:"2012年4月",data:[{date:"2012年4月1日",achieve:"NO GRAY",difficulty:"BASIC",title:"ダイナマイト",count:80},{date:"2012年4月1日",achieve:"FULL COMBO",difficulty:"BASIC",title:"ダイナマイト",count:73}]}];
+var achieve = [{date:"2012年4月1日",achieve:"NO GRAY",difficulty:"BASIC",title:"ダイナマイト",count:80},{date:"2012年4月1日",achieve:"FULL COMBO",difficulty:"BASIC",title:"ダイナマイト",count:73},{date:"2012年4月1日",achieve:"FULL COMBO",difficulty:"BASIC",title:"Fellow",count:73},{date:"2012年4月1日",achieve:"FULL COMBO",difficulty:"ADVANCED",title:"Fellow",count:73},{date:"2012年4月1日",achieve:"NO GRAY",difficulty:"BASIC",title:"FLOWER",count:73},{date:"2012年4月1日",achieve:"FULL COMBO",difficulty:"BASIC",title:"FLOWER",count:73}];
+
+$("#news").live("pageinit", function(event){
+    $("#newsTemplate").tmpl(news).appendTo("#news-list");
+    $("#news-list").listview("refresh");
+});
+$("#achieve").live("pageinit", function(event){
+    var a = Enumurator.From(achieve).GroupBy("$.achieve").ToArray();
+    $("#listTemplate").tmpl(a).appendTo("#achieve-list");
+    $("#achieve-list").listview("refresh");
+});
+$("#music").live("pageinit",function(event){
+    $("#music .reg-date").map(function(x,y){
+        if(isauto[x]){ $(y).addClass("auto"); }
+        $(y).text(regdate[x]?regdate[x]:"まだらしい。");
+    });
+    $("#music .difficulty").map(function(x,y){
+        for(var data in difficulty[x]){
+            y.dataset[data] = difficulty[x][data];
+	}
+    });
+});

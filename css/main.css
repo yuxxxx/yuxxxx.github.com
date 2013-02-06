@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*楽曲の達成状況に関する設定*/
+#music .auto:after {
+  content: '(auto)'; }
+#music .difficulty:after {
+  content: ":Lv" attr(data-level) " " attr(data-rating) "(" attr(data-score) ")"; }
+
+/*達成情報の履歴に関する設定*/
+#news .news .achieve:after {
+  /*content: '(' attr(data-count) '曲目)';*/ }
+#news .news .title {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  #news .news .title:before {
+    content: attr(data-difficulty) ":"; }
+
+/*曲一覧の設定*/
+#achieve a[data-difficulty=BASIC]:before {
+  content: "BSC";
+  color: #00ff00; }
+#achieve a[data-difficulty=ADVANCED]:before {
+  content: "ADV";
+  color: #ffff00; }
+#achieve a[data-difficulty=EXTREME]:before {
+  content: "EXT";
+  color: #ff0000; }

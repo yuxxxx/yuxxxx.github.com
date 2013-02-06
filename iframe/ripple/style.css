@@ -1,0 +1,33 @@
+body, #background {
+    width:100%;
+    min-height:1px;
+    hwight:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+#background {
+    background-color:#eee;
+}
+div {
+    display:inline-block;
+    position:absolute;
+}
+div.taurus {
+    border-radius:100px;
+    border-style:solid;
+    border-width:10px;
+    opacity:0.7;
+    width:10px;
+    height:10px;
+}
+body:hover div.animation {
+    border: thin black solid;
+    -webkit-animation-name:bump;
+    -webkit-animation-duration:0.3s;
+}
+@-webkit-keyframes bump {
+    0% { -webkit-transform: scale(1.0); }
+    50% { -webkit-transform: scale(1.6); }
+    100% { -webkit-transform: scale(1.0); }
+}
